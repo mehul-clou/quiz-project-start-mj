@@ -11,11 +11,12 @@ export default function QuestionTimer({ timeout, onTimeout }) {
   }, [timeout, onTimeout]);
 
   useEffect(() => {
+    console.log("i am in outer layer of setinterval useeffect");
     setInterval(() => {
       console.log("iam inside in set interval");
       setRemainingTime((prevRemainingTime) => prevRemainingTime - 100);
     }, 100);
   }, []);
 
-  return <Progress id="question-time" max={timeout} value={remainingTime} />;
+  return <progress id="question-time" max={timeout} value={remainingTime} />;
 }
